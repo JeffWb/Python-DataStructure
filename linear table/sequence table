@@ -1,1 +1,21 @@
+In python,sequence table includes tuple() and list[]
 
+There are some main operations of tuple and list:
+
+tuple:     (immutable type)
+  a.  (1,)-tuple     (1)-int
+  b.  tuple([1,2])
+      list((1,2))
+  c.  t.index("1")   t.count("1")
+  d.  len(tuple)
+  e.  slice and index
+  
+list:      (variable tyoe)
+  a.  len(list)
+  b.  "a".join(list)-------return str
+  c.  list.index("1")    list.count("1")
+  d.  list.insert(index,num) 
+  e.  list.pop(num)--------default num = -1,
+  f.  enumerate(list) ---------return index and list value
+  g.  list.reverse()----------reverse the list, no return
+  h.  list.sort(reverse = False)--------sort the list, from small to large,default reverse = False
