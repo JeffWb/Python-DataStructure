@@ -7,7 +7,7 @@ _*_ coding:utf-8 _*_
 
 @Version:3.6
 """
-
+#
 #node
 class LNode:
 	def __init__(self, elem,next_ = None):
