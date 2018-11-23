@@ -1,0 +1,10 @@
+s.strip()   remove " " and "\n" in str
+s.strip("a")   remove "a" in str
+s.split("a")   transform to a list, separate by "a"
+s.index("a")   index of "a" in str
+s.count("a")   count of "a" in str
+s.replace("a","b")    replace "a" by "b"
+len(s)   length of s
+s.lower()    lowercase
+s.upper()    upper case
+s[:]     slice
