@@ -8,6 +8,10 @@ KMP mathcing
 """
 
 def KMP(str1,str2):
+	"""
+	first char is not matched, move 1;
+	others is not matched, next_table[]
+	"""
 	len_str1 = len(str1)
 	len_str2 = len(str2)
 	table = next_table(str2)
@@ -27,6 +31,12 @@ def KMP(str1,str2):
 	
 #next_table
 def next_table(str2):
+	"""
+	seconde char is not matched, move 1------->table = [1]
+	others: equal, longest substr of pre_str and post_str------get it's length l_s
+		has been matched str in str2 with str1 --------get it's length l_m
+		move step = l_m -l_s
+	"""	
 	table = [1]      #save mive steps intable,   1 means only str2's first char matched, move 1
 	pre = []         #save prefix
 	post = []	 #save postfix
