@@ -139,7 +139,7 @@ class BTree:
 		preorder traverse recurrent
 		"""
 		if root == None:
-			raise treeemptyError("tree is empty")
+			raise emptytreeError("tree is empty")
 		if root != None:
 			print(root)
 			self.pre_tra_recur(root.left)
@@ -150,7 +150,7 @@ class BTree:
 		preorder traverse circle
 		"""
 		if self.root == None:
-			raise treeemptyError("tree is empty")
+			raise emptytreeError("tree is empty")
 		else:
 			stack = [self.root]
 			print_val = []
@@ -176,7 +176,7 @@ class BTree:
 		mdorder traverse circle
 		"""
 		if self.root == None:
-			raise treeemptyError("tree is empty")
+			raise emptytreeError("tree is empty")
 		else:
 			print_val = []
 			stack = []
