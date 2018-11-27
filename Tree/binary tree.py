@@ -85,12 +85,12 @@ class BTree:
 					max_width = width
 			return max_width
 		
-	def max_deepth(self):
+	def max_deepth_circle(self):
+		"""
+		circle method to solve
+		"""
 		if self.root == None:
 			return 0
-# 		leftdeepth = self.max_deepth(root.left)
-# 		rightdeepth = self.max_deepth(root.right)
-# 		return max(leftdeepth + 1,rightdeepth + 1)
 		else:
 			stack = [self.root]
 			max_deepth = 1
@@ -104,9 +104,94 @@ class BTree:
 						if temp.right != None:
 							stack.append(temp.right)	
 				max_deepth = deepth
+			return max_deepth
 			
-"""tired"""
+	def max_deepth_recurrent(self,root):
+		"""
+		recurrent method to solve
+		"""
+		if root == None:
+			return 0
+		leftdeepth = self.max_deepth_recurrent(root.left)
+		rightdeepth = self.max_deepth_recurrent(root.right)
+		return max(leftdeepth + 1,rightdeepth + 1)
+	
+	def seq_tra(self):
+		"""
+		sequently print circle
+		"""
+		if self.root == None:
+			raise emptytreeError("tree is empty")
+		else:
+			stack = [self.root]
+			print_val = []
+			while stack:
+				temp = stack.pop(0)
+				print_val.append(temp.elem)
+				if temp.left != None:
+					stack.append(temp.left)
+				if temp.right != None:
+					stack.append(temp.right)
+			return print_val
 					
+	def pre_tra_recur(self,root):
+		"""
+		preorder traverse recurrent
+		"""
+		if root == None:
+			raise treeemptyError("tree is empty")
+		if root != None:
+			print(root)
+			self.pre_tra_recur(root.left)
+			self.pre_tra_recur(root.right)
+			
+	def pre_tra_cir(self):
+		"""
+		preorder traverse circle
+		"""
+		if self.root == None:
+			raise treeemptyError("tree is empty")
+		else:
+			stack = [self.root]
+			print_val = []
+			while stack:
+				temp = stack.pop()
+				print_val.append(temp.elem)
+				if temp.right != None:
+					stack.append(temp.right)
+				if temp.left != None:
+					stack.append(temp.left)
+	
+	def mid_tra_recur(self,root):
+		"""
+		midorder traverse recurrent
+		"""
+		if root != None:
+			self.mid_tra_recur(root.left)
+			print(root)
+			self.mid_tra_recur(root.right)
+			
+	def mid_tra_cir(self):
+		"""
+		mdorder traverse circle
+		"""
+		if self.root == None:
+			raise treeemptyError("tree is empty")
+		else:
+			print_val = []
+			stack = []
+			cur = self.root
+			while len(stack) != 0 and cur != None:
+				if cur != None:
+					stack.append(cur)
+					cur = cur.left
+				else:
+					temp = stack.pop()
+					print_val.append(temp.elem)
+					cur = temp.right
+			return print_val
+			
+	
 					
 					
 					
