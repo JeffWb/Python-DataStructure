@@ -33,7 +33,7 @@ class BTree:
 			self.root = node
 		else:
 			stack = [self.root]
-			while stack:
+			while len(stack) != None:
 				temp = stack.pop(0)
 				if temp.left == None:
 					temp.left = node
@@ -55,7 +55,7 @@ class BTree:
 		else:
 			stack = [self.root]
 			num = 0
-			while stack:
+			while len(stack) != 0:
 				temp = stack.pop(0)
 				num += 1
 				if temp.left != None:
@@ -71,7 +71,7 @@ class BTree:
 			stack = [self.root]
 			width = 1
 			max_width = 1
-			while stack:
+			while len(stack) != NOne:
 				for i in len(stack):
 					temp = stack.pop(0)
 					width -= 1
@@ -94,7 +94,7 @@ class BTree:
 		else:
 			stack = [self.root]
 			max_deepth = 1
-			while stack:
+			while len(stack) != None:
 				for i in len(stack):
 					temp = stack.pop(0)
 					if temp.left != None or temp.right != None:
@@ -118,14 +118,14 @@ class BTree:
 	
 	def seq_tra(self):
 		"""
-		sequently print circle
+		sequence traverse circle
 		"""
 		if self.root == None:
 			raise emptytreeError("tree is empty")
 		else:
 			stack = [self.root]
 			print_val = []
-			while stack:
+			while len(stack) != 0:
 				temp = stack.pop(0)
 				print_val.append(temp.elem)
 				if temp.left != None:
@@ -138,8 +138,6 @@ class BTree:
 		"""
 		preorder traverse recurrent
 		"""
-		if root == None:
-			raise emptytreeError("tree is empty")
 		if root != None:
 			print(root)
 			self.pre_tra_recur(root.left)
@@ -154,7 +152,7 @@ class BTree:
 		else:
 			stack = [self.root]
 			print_val = []
-			while stack:
+			while len(stack) != 0:
 				temp = stack.pop()
 				print_val.append(temp.elem)
 				if temp.right != None:
@@ -168,12 +166,12 @@ class BTree:
 		"""
 		if root != None:
 			self.mid_tra_recur(root.left)
-			print(root)
+			print(self.root)
 			self.mid_tra_recur(root.right)
 			
 	def mid_tra_cir(self):
 		"""
-		mdorder traverse circle
+		midorder traverse circle
 		"""
 		if self.root == None:
 			raise emptytreeError("tree is empty")
@@ -191,7 +189,49 @@ class BTree:
 					cur = temp.right
 			return print_val
 			
-	
+	def post_tra_recur(self,root):
+		"""
+		postorderr traverse recur
+		"""
+		if root != None:
+			self.post_tra_recur(root.left)
+			self.post_tra_recur(root.right)
+			print(root)
+			
+	def post_tra_circle(self):
+		if self.root = None:
+			raise emptytreeError("tree is empty")
+		else:
+			stack1 = [self.root]
+			stack2 = []
+			print_val = []
+			while len(stack1) != None:
+				temp = stack1.pop()
+				stack2.append(temp)
+				if temp.left != None:
+					stack1.append(temp.left)
+				if temp.right != None:
+					stack1.append(temp.right)
+			while len(stack2) != None:
+				print_val.append(stack2.pop().elem)
+			return print_val
+		
+if __name__ == '__main__':
+	tree_root = Node(1)
+	tree = BTree(tree_root)
+	for i in range(2,7):
+		tree.add_node(i)
+	print(tree.node_num())
+	print(tree.max_width())
+	print(tree.max_deepth_recurrent)
+	print(tree.seq_tra())
+	print(tree.pre_tra_recur(tree.root))
+	print(tree.pre_tra_cir())
+	print(tree.mid_tra_recur(tree.root))
+	print(tree.mid_tra_cir())
+	print(tree.post_tra_recur(tree.root))
+	print(tree.post_tra_cir())
+		
 					
 					
 					
