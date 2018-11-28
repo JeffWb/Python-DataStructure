@@ -230,23 +230,4 @@ if __name__ == '__main__':
 	print(tree.mid_tra_recur(tree.root))
 	print(tree.mid_tra_cir())
 	print(tree.post_tra_recur(tree.root))
-	print(tree.post_tra_cir())
-		
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+	print(tree.post_tra_cir())		
