@@ -15,13 +15,13 @@ class Node:
 		self.right = right
 		
 class HuffmanTree:
-	def __init__(self,dict):
+	def __init__(self,dic):
 		"""
 		HuffmanTree initialize
 		"""
 		#generate node list
 		node_list = []
-		for k,v in dict.items():
+		for k,v in dic.items():
 			node = Node(name = k,value = v)
 			node_list.append(node)
 			
@@ -62,8 +62,8 @@ class HuffmanTree:
 				self.HuffmanCoding(root.right,length + 1)
 				
 if __name__ == "__main__":
-	dict = {"a": 9, "b": 12, "c": 6, "d": 3,"e":5, "f": 15}
-	Huffmantree = HuffmanTree(dict)
+	dic = {"a": 9, "b": 12, "c": 6, "d": 3,"e":5, "f": 15}
+	Huffmantree = HuffmanTree(dic)
 	pre_traverse(Huffmantree.root)
 	HuffmanCoding(Huffmantree.root,0)
 	
